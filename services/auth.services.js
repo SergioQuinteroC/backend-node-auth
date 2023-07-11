@@ -45,7 +45,7 @@ class AuthService {
     const link = `http://myfrontend.com/recovery?token=${token}`;
     await service.update(user.id, { recoveryToken: token });
     const mail = {
-      from: 'sergio08099@gmail.com', // sender address
+      from: config.smtpEmail, // sender address
       to: `${user.email}`, // list of receivers
       subject: 'Email para recuperar contraseña', // Subject line
       html: `<b>Ingresa a este link => ${link} </b>`, // html body
